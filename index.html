@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xianyan Jia - Personal Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #fafaf9;
+            --bg-secondary: #ffffff;
+            --text-primary: #1c1917;
+            --text-secondary: #57534e;
+            --text-tertiary: #a8a29e;
+            --accent: #2563eb;
+            --accent-light: #dbeafe;
+            --accent-hover: #1d4ed8;
+            --border: #e7e5e4;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+            --radius: 12px;
+            --max-width: 860px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(250, 250, 249, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        nav .nav-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        nav .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.4rem 0.85rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--text-primary);
+            background: rgba(0,0,0,0.04);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+        }
+
+        .hero-avatar {
+            flex-shrink: 0;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            font-family: 'Source Serif 4', Georgia, serif;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .hero-content .bio {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+            background: var(--bg-secondary);
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-light);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .social-links a svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Section Styles */
+        .section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--text-primary);
+            display: inline-block;
+        }
+
+        /* Research Interests */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .interest-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .interest-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .interest-card .icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .interest-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+        }
+
+        .interest-card p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        /* Publications */
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .pub-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .pub-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .pub-header {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .pub-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.45;
+            flex: 1;
+        }
+
+        .pub-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .pub-title a:hover {
+            color: var(--accent);
+        }
+
+        .pub-citations {
+            flex-shrink: 0;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 9999px;
+            white-space: nowrap;
+        }
+
+        .pub-authors {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.3rem;
+            line-height: 1.5;
+        }
+
+        .pub-authors .me {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .pub-venue {
+            font-size: 0.82rem;
+            color: var(--text-tertiary);
+            font-style: italic;
+        }
+
+        /* Experience */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent);
+            z-index: 1;
+        }
+
+        .timeline-item.current::before {
+            background: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-light);
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-role {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .timeline-company {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .timeline-date {
+            font-size: 0.82rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0.4rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* Education */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .edu-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .edu-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .edu-degree {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .edu-school {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.92rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .edu-meta {
+            font-size: 0.82rem;
+            color: var(--text-tertiary);
+        }
+
+        .edu-detail {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Awards */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .award-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .award-item:hover {
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-1px);
+        }
+
+        .award-icon {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .award-content h4 {
+            font-size: 0.88rem;
+            font-weight: 600;
+            line-height: 1.35;
+        }
+
+        .award-content span {
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Footer */
+        footer {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            font-size: 0.82rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding-top: 6rem;
+                gap: 1.5rem;
+            }
+
+            .hero-avatar {
+                width: 120px;
+                height: 120px;
+                font-size: 2.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .edu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav .nav-links a {
+                padding: 0.3rem 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stats bar */
+        .stats-bar {
+            display: flex;
+            gap: 2rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 768px) {
+            .stats-bar {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-inner">
+        <span class="nav-name">Xianyan Jia</span>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#publications">Publications</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#awards">Awards</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="about">
+    <div class="hero-avatar">XJ</div>
+    <div class="hero-content">
+        <h1>Xianyan Jia</h1>
+        <p class="tagline">Research Engineer at ByteDance Seed</p>
+        <p class="bio">
+            I am a research engineer at <strong>ByteDance Seed</strong>, working on large-scale AI training infrastructure and reinforcement learning systems. 
+            My research focuses on distributed deep learning, efficient large model training, and scalable AI systems. 
+            Previously, I worked at Alibaba Cloud, Tencent, and Intel, where I built large-scale distributed training systems and contributed to projects including 
+            <strong>Whale</strong> (USENIX ATC'22), <strong>M6</strong>, and <strong>BigDL</strong>. 
+            I hold a Master's degree from the National University of Singapore and a Bachelor's degree from Sichuan University.
+        </p>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Publications</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1100+</div>
+                <div class="stat-label">Citations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years Exp.</div>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="https://scholar.google.com/citations?user=WrJJp-gAAAAJ&hl=en" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-2a5 5 0 1 0 0-10 5 5 0 0 0 0 10ZM0 0h24l-8 8H0V0Z"/></svg>
+                Google Scholar
+            </a>
+            <a href="https://www.linkedin.com/in/xianyan-jia-48a88378/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+            </a>
+            <a href="https://github.com/SeaOfOcean" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                GitHub
+            </a>
+            <a href="mailto:xianyan.jia@bytedance.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                Email
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Research Interests -->
+<section class="section fade-in" id="research">
+    <h2 class="section-title">Research Interests</h2>
+    <div class="interests-grid">
+        <div class="interest-card">
+            <div class="icon">&#9881;</div>
+            <h3>Distributed Training</h3>
+            <p>Large-scale distributed deep learning training systems with mixed-precision and auto-parallelism.</p>
+        </div>
+        <div class="interest-card">
+            <div class="icon">&#129302;</div>
+            <h3>Large Language Models</h3>
+            <p>Efficient training and serving infrastructure for trillion-parameter models.</p>
+        </div>
+        <div class="interest-card">
+            <div class="icon">&#127919;</div>
+            <h3>Reinforcement Learning</h3>
+            <p>Scalable RL training systems and RLHF infrastructure for LLM alignment.</p>
+        </div>
+        <div class="interest-card">
+            <div class="icon">&#128640;</div>
+            <h3>Systems for ML</h3>
+            <p>High-performance computing, GPU cluster scheduling, and elastic training.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Selected Publications -->
+<section class="section fade-in" id="publications">
+    <h2 class="section-title">Selected Publications</h2>
+    <div class="pub-list">
+        <div class="pub-item">
+            <div class="pub-header">
+                <div class="pub-title">
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WrJJp-gAAAAJ&citation_for_view=WrJJp-gAAAAJ:MXK_kJrjxJIC" target="_blank">
+                        Highly Scalable Deep Learning Training System with Mixed-Precision: Training ImageNet in Four Minutes
+                    </a>
+                </div>
+                <span class="pub-citations">515 cited</span>
+            </div>
+            <div class="pub-authors"><span class="me">X Jia</span>, S Song, W He, Y Wang, H Rong, F Zhou, L Xie, Z Guo, Y Yang, L Yu, ...</div>
+            <div class="pub-venue">arXiv preprint arXiv:1807.11205, 2018</div>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-header">
+                <div class="pub-title">
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WrJJp-gAAAAJ&citation_for_view=WrJJp-gAAAAJ:8k81kl-MbHgC" target="_blank">
+                        BigDL: A Distributed Deep Learning Framework for Big Data
+                    </a>
+                </div>
+                <span class="pub-citations">204 cited</span>
+            </div>
+            <div class="pub-authors">JJ Dai, Y Wang, X Qiu, D Ding, Y Zhang, Y Wang, <span class="me">X Jia</span>, CL Zhang, Y Wan, ...</div>
+            <div class="pub-venue">Proceedings of the ACM Symposium on Cloud Computing, 50-60, 2019</div>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-header">
+                <div class="pub-title">
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WrJJp-gAAAAJ&citation_for_view=WrJJp-gAAAAJ:Zph67rFs4hoC" target="_blank">
+                        M6: A Chinese Multimodal Pretrainer
+                    </a>
+                </div>
+                <span class="pub-citations">172 cited</span>
+            </div>
+            <div class="pub-authors">J Lin, R Men, A Yang, C Zhou, M Ding, Y Zhang, P Wang, A Wang, <span class="me">X Jia</span>, ...</div>
+            <div class="pub-venue">arXiv preprint arXiv:2103.00823, 2021</div>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-header">
+                <div class="pub-title">
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WrJJp-gAAAAJ&citation_for_view=WrJJp-gAAAAJ:qxL8FJ1GzNcC" target="_blank">
+                        Whale: Efficient Giant Model Training over Heterogeneous GPUs
+                    </a>
+                </div>
+                <span class="pub-citations">89 cited</span>
+            </div>
+            <div class="pub-authors"><span class="me">X Jia</span>, L Jiang, A Wang, W Xiao, Z Shi, J Zhang, X Li, L Chen, Y Li, ...</div>
+            <div class="pub-venue">2022 USENIX Annual Technical Conference (USENIX ATC 22), 673-688, 2022</div>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-header">
+                <div class="pub-title">
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WrJJp-gAAAAJ&citation_for_view=WrJJp-gAAAAJ:ULOm3_A8WrAC" target="_blank">
+                        M6-T: Exploring Sparse Expert Models and Beyond
+                    </a>
+                </div>
+                <span class="pub-citations">78 cited</span>
+            </div>
+            <div class="pub-authors">A Yang, J Lin, R Men, C Zhou, L Jiang, <span class="me">X Jia</span>, A Wang, J Zhang, J Wang, ...</div>
+            <div class="pub-venue">arXiv preprint arXiv:2105.15082, 2021</div>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-header">
+                <div class="pub-title">
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WrJJp-gAAAAJ&citation_for_view=WrJJp-gAAAAJ:_kc_bZDykSQC" target="_blank">
+                        M6-10T: A Sharing-Delinking Paradigm for Efficient Multi-Trillion Parameter Pretraining
+                    </a>
+                </div>
+                <span class="pub-citations">46 cited</span>
+            </div>
+            <div class="pub-authors">J Lin, A Yang, J Bai, C Zhou, L Jiang, <span class="me">X Jia</span>, A Wang, J Zhang, Y Li, W Lin, ...</div>
+            <div class="pub-venue">arXiv preprint arXiv:2110.03888, 2021</div>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-header">
+                <div class="pub-title">
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WrJJp-gAAAAJ&citation_for_view=WrJJp-gAAAAJ:mVmsd5A6BfQC" target="_blank">
+                        EasyScale: Elastic Training with Consistent Accuracy and Improved Utilization on GPUs
+                    </a>
+                </div>
+                <span class="pub-citations">27 cited</span>
+            </div>
+            <div class="pub-authors">M Li, W Xiao, H Yang, B Sun, H Zhao, S Ren, Z Luan, <span class="me">X Jia</span>, Y Liu, Y Li, ...</div>
+            <div class="pub-venue">Proceedings of the International Conference for High Performance Computing, 2023 (SC'23)</div>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-header">
+                <div class="pub-title">
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WrJJp-gAAAAJ&citation_for_view=WrJJp-gAAAAJ:9ZlFYXVOiuMC" target="_blank">
+                        Rubick: Exploiting Job Reconfigurability for Deep Learning Cluster Scheduling
+                    </a>
+                </div>
+                <span class="pub-citations">7 cited</span>
+            </div>
+            <div class="pub-authors">X Zhang, H Zhao, W Xiao, <span class="me">X Jia</span>, F Xu, Y Li, W Lin, F Liu</div>
+            <div class="pub-venue">Proceedings of Machine Learning and Systems (MLSys), 2025</div>
+        </div>
+
+        <div class="pub-item">
+            <div class="pub-header">
+                <div class="pub-title">
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=WrJJp-gAAAAJ&citation_for_view=WrJJp-gAAAAJ:Wp0gIr-vW9MC" target="_blank">
+                        TAP: Efficient Derivation of Tensor Parallel Plans for Large Neural Networks
+                    </a>
+                </div>
+                <span class="pub-citations">3 cited</span>
+            </div>
+            <div class="pub-authors">Z Shi, L Jiang, A Wang, J Zhang, <span class="me">X Jia</span>, Y Li, C Wu, J Li, W Lin</div>
+            <div class="pub-venue">Architecture and System Support for Transformer Models (ASSYST @ ISCA 2023), 2023</div>
+        </div>
+    </div>
+    <p style="margin-top: 1.5rem; text-align: center;">
+        <a href="https://scholar.google.com/citations?user=WrJJp-gAAAAJ&hl=en" target="_blank" style="color: var(--accent); font-size: 0.9rem; font-weight: 500; text-decoration: none;">
+            View all publications on Google Scholar &rarr;
+        </a>
+    </p>
+</section>
+
+<!-- Experience -->
+<section class="section fade-in" id="experience">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+        <div class="timeline-item current">
+            <div class="timeline-header">
+                <span class="timeline-role">Research Engineer</span>
+                <span class="timeline-company">@ ByteDance Seed</span>
+            </div>
+            <div class="timeline-date">Present</div>
+            <div class="timeline-desc">
+                Working on large-scale AI training infrastructure, reinforcement learning systems, and large model training/serving optimization.
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="timeline-role">Software Engineer</span>
+                <span class="timeline-company">@ Alibaba Cloud</span>
+            </div>
+            <div class="timeline-date">Oct 2018 &ndash; 2024 &middot; ~6 years</div>
+            <div class="timeline-desc">
+                Built AI platform infrastructure. Led the development of Whale, a distributed training framework for trillion-parameter models. 
+                Contributed to M6 series (multimodal pretraining), EasyScale (elastic training), and TAP (automatic parallelism).
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="timeline-role">AI Engineer</span>
+                <span class="timeline-company">@ Tencent</span>
+            </div>
+            <div class="timeline-date">Mar 2018 &ndash; Sep 2018 &middot; 6 months</div>
+            <div class="timeline-desc">
+                Large-scale distributed training and deep learning infrastructure.
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="timeline-role">Deep Learning Engineer</span>
+                <span class="timeline-company">@ Intel Corporation</span>
+            </div>
+            <div class="timeline-date">Jul 2016 &ndash; Mar 2018 &middot; 1 year 8 months</div>
+            <div class="timeline-desc">
+                Core contributor to <strong>BigDL</strong> (Deep Learning Library on Apache Spark). Developed object detection pipelines (SSD, Faster-RCNN) for Analytics Zoo. 
+                Delivered large-scale image feature extraction pipeline to JD.com. Achieved record-breaking ImageNet training speed.
+                Received <strong>Intel 360 Mega Award</strong>.
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="timeline-role">Research Intern</span>
+                <span class="timeline-company">@ Chinese Academy of Sciences</span>
+            </div>
+            <div class="timeline-date">Nov 2013 &ndash; May 2014 &middot; 6 months</div>
+            <div class="timeline-desc">Research internship at Shenzhen Institutes of Advanced Technology.</div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="timeline-role">Software Engineer Intern</span>
+                <span class="timeline-company">@ Microsoft</span>
+            </div>
+            <div class="timeline-date">Jul 2013 &ndash; Oct 2013 &middot; 3 months</div>
+            <div class="timeline-desc">Software engineering internship at Microsoft Beijing.</div>
+        </div>
+    </div>
+</section>
+
+<!-- Education -->
+<section class="section fade-in" id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="edu-grid">
+        <div class="edu-card">
+            <div class="edu-degree">M.Sc. in Computer Science</div>
+            <div class="edu-school">National University of Singapore</div>
+            <div class="edu-meta">2014 &ndash; 2016 &middot; Singapore</div>
+            <div class="edu-detail">Teaching Assistant for CS1010, CS2102, CS2103.</div>
+        </div>
+        <div class="edu-card">
+            <div class="edu-degree">B.Eng. in Computer Software Engineering</div>
+            <div class="edu-school">Sichuan University</div>
+            <div class="edu-meta">2010 &ndash; 2014 &middot; China</div>
+            <div class="edu-detail">GPA: 92.8%. Excellent Graduate of Sichuan Province. National Scholarship x3.</div>
+        </div>
+    </div>
+</section>
+
+<!-- Awards -->
+<section class="section fade-in" id="awards">
+    <h2 class="section-title">Honors & Awards</h2>
+    <div class="awards-grid">
+        <div class="award-item">
+            <div class="award-icon">&#127942;</div>
+            <div class="award-content">
+                <h4>Intel 360 Mega Award</h4>
+                <span>2018</span>
+            </div>
+        </div>
+        <div class="award-item">
+            <div class="award-icon">&#127891;</div>
+            <div class="award-content">
+                <h4>Excellent Graduate of Sichuan Province</h4>
+                <span>2014</span>
+            </div>
+        </div>
+        <div class="award-item">
+            <div class="award-icon">&#127941;</div>
+            <div class="award-content">
+                <h4>Honorable Mention, MCM</h4>
+                <span>Mathematical Contest in Modeling, 2013</span>
+            </div>
+        </div>
+        <div class="award-item">
+            <div class="award-icon">&#127942;</div>
+            <div class="award-content">
+                <h4>IBM Excellent Student Scholarship</h4>
+                <span>2013</span>
+            </div>
+        </div>
+        <div class="award-item">
+            <div class="award-icon">&#127775;</div>
+            <div class="award-content">
+                <h4>National Scholarship</h4>
+                <span>2011, 2012, 2013 (3 consecutive years)</span>
+            </div>
+        </div>
+        <div class="award-item">
+            <div class="award-icon">&#127760;</div>
+            <div class="award-content">
+                <h4>National English Contest for College Students</h4>
+                <span>Second Prize, 2012</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 Xianyan Jia. Built with care.</p>
+</footer>
+
+<script>
+    // Scroll animation observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offset = 80;
+                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
